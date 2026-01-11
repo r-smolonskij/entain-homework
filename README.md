@@ -28,6 +28,9 @@ npm start
 
 The app runs at `http://localhost:3000`.
 
+## Live Preview
+You can preview the app at `https://entain-homework.vercel.app/`.
+
 ## API Configuration
 The UI expects the API at `http://localhost:3001/api`.
 
