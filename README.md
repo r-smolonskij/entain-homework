@@ -4,6 +4,7 @@ React app for browsing movies and viewing details, built with Create React App a
 
 ## Features
 - Movie list with pagination
+- Movie search with debounced input
 - Movie details view with gallery and modal
 - Loading and error states
 

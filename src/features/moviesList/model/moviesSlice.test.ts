@@ -4,16 +4,39 @@ import {
   fetchMoviesSuccess,
   moviesReducer,
   setPage,
+  setQuery,
 } from "./moviesSlice";
 import { moviesFixture } from "../../../shared/test/fixtures/moviesFixture";
 
 describe("moviesSlice", () => {
   it("handles setPage", () => {
     const state = moviesReducer(
-      { items: [], page: 1, totalPages: 0, isLoading: false, error: null },
+      {
+        items: [],
+        page: 1,
+        query: "",
+        totalPages: 0,
+        isLoading: false,
+        error: null,
+      },
       setPage(3)
     );
     expect(state.page).toBe(3);
+  });
+
+  it("handles setQuery", () => {
+    const state = moviesReducer(
+      {
+        items: [],
+        page: 1,
+        query: "",
+        totalPages: 0,
+        isLoading: false,
+        error: null,
+      },
+      setQuery("star")
+    );
+    expect(state.query).toBe("star");
   });
 
   it("handles fetchMoviesStart", () => {
@@ -24,7 +47,14 @@ describe("moviesSlice", () => {
 
   it("handles fetchMoviesSuccess", () => {
     const state = moviesReducer(
-      { items: [], page: 1, totalPages: 0, isLoading: true, error: null },
+      {
+        items: [],
+        page: 1,
+        query: "",
+        totalPages: 0,
+        isLoading: true,
+        error: null,
+      },
       fetchMoviesSuccess({ items: moviesFixture, totalPages: 10 })
     );
     expect(state.items).toEqual(moviesFixture);
@@ -34,7 +64,14 @@ describe("moviesSlice", () => {
 
   it("caps totalPages at 500", () => {
     const state = moviesReducer(
-      { items: [], page: 1, totalPages: 0, isLoading: true, error: null },
+      {
+        items: [],
+        page: 1,
+        query: "",
+        totalPages: 0,
+        isLoading: true,
+        error: null,
+      },
       fetchMoviesSuccess({ items: moviesFixture, totalPages: 600 })
     );
     expect(state.totalPages).toBe(500);
@@ -45,6 +82,7 @@ describe("moviesSlice", () => {
       {
         items: moviesFixture,
         page: 1,
+        query: "",
         totalPages: 10,
         isLoading: true,
         error: null,

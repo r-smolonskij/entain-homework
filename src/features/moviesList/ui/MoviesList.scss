@@ -6,8 +6,9 @@
   grid-auto-rows: 1fr;
   gap: $space-4;
   margin: 0 auto;
-  padding: $space-4;
+  padding: $space-4 0;
   width: 100%;
+  box-sizing: border-box;
 
   &__item {
     display: flex;

@@ -19,6 +19,20 @@ export const moviesApi = {
     return response.json();
   },
 
+  async searchMovies(
+    query: string,
+    page?: number
+  ): Promise<MoviesListResponse> {
+    const response = await fetch(
+      `${moviesApiPath}/search?query=${query}&page=${page}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch movies");
+    }
+
+    return response.json();
+  },
+
   async getMovieById(
     id: string,
     appendToResponse?: string

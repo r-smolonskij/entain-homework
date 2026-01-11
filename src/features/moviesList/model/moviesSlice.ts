@@ -5,6 +5,7 @@ const MAX_TOTAL_PAGES = 500;
 type MoviesState = {
   items: Movie[];
   page: number;
+  query: string;
   totalPages: number;
   isLoading: boolean;
   error: string | null;
@@ -13,6 +14,7 @@ type MoviesState = {
 const initialState: MoviesState = {
   items: [],
   page: 1,
+  query: "",
   totalPages: 0,
   isLoading: false,
   error: null,
@@ -24,6 +26,9 @@ const moviesSlice = createSlice({
   reducers: {
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
+    },
+    setQuery(state, action: PayloadAction<string>) {
+      state.query = action.payload;
     },
     fetchMoviesStart(state) {
       state.isLoading = true;
@@ -47,6 +52,7 @@ const moviesSlice = createSlice({
 
 export const {
   setPage,
+  setQuery,
   fetchMoviesStart,
   fetchMoviesSuccess,
   fetchMoviesFailure,

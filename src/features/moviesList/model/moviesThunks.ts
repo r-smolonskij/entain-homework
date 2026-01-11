@@ -5,15 +5,26 @@ import {
   fetchMoviesStart,
   fetchMoviesSuccess,
   setPage,
+  setQuery,
 } from "./moviesSlice";
 
-export const fetchMovies = (page: number) => async (dispatch: AppDispatch) => {
+type FetchMoviesParams = {
+  page: number;
+  query?: string;
+};
+
+export const fetchMovies =
+  ({ page, query = "" }: FetchMoviesParams) =>
+  async (dispatch: AppDispatch) => {
   try {
     dispatch(setPage(page));
+    dispatch(setQuery(query));
     dispatch(fetchMoviesStart());
 
-    const response = await moviesApi.getMovies(page);
-    console.log(response);
+    const normalizedQuery = query.trim();
+    const response = normalizedQuery
+      ? await moviesApi.searchMovies(normalizedQuery, page)
+      : await moviesApi.getMovies(page);
     dispatch(
       fetchMoviesSuccess({
         items: response.results,
