@@ -1,0 +1,51 @@
+@use "../../../app/styles/variables" as *;
+
+.pagination {
+  align-items: center;
+  display: inline-flex;
+  gap: $space-3;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__pages {
+    align-items: center;
+    display: inline-flex;
+    gap: $space-2;
+    flex-wrap: wrap;
+  }
+
+  &__button--nav {
+    min-width: 64px;
+  }
+
+  &__button--active {
+    background-color: $color-ink;
+    border-color: $color-ink;
+    color: $color-text;
+    opacity: 1;
+  }
+
+  &__ellipsis {
+    color: rgba(13, 37, 63, 0.6);
+    font-size: $text-sm;
+    letter-spacing: 0.08em;
+    padding: 0 $space-1;
+  }
+
+  @media (max-width: 600px) {
+    gap: $space-2;
+
+    &__pages {
+      gap: $space-1;
+    }
+
+    &__button--nav {
+      min-width: auto;
+    }
+
+    &__pages &__button:not(&__button--active),
+    &__ellipsis {
+      display: none;
+    }
+  }
+}

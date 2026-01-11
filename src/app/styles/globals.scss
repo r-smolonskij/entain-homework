@@ -1,0 +1,26 @@
+@use "./variables" as *;
+
+:root {
+  --color-error: #{$color-error};
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: $color-bg; //$page-gradient;
+  background-size: 200% 200%;
+  color: $color-ink;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@keyframes page-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

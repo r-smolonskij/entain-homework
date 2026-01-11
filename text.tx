@@ -1,0 +1,51 @@
+src/
+├─ app/
+│  ├─ styles/
+│  │  ├─ _variables.scss
+│  │  ├─ _mixins.scss
+│  │  ├─ _reset.scss
+│  │  └─ globals.scss
+│  ├─ providers/
+│  │  └─ AppProviders.tsx
+│  └─ store/
+│     └─ index.ts
+│
+├─ shared/
+│  ├─ api/
+│  │  └─ moviesApi.ts
+│  ├─ ui/
+│  │  ├─ Button/
+│  │  │  ├─ Button.tsx
+│  │  │  └─ Button.scss
+│  │  ├─ Spinner/
+│  │  └─ Pagination/
+│  │     ├─ Pagination.tsx
+│  │     └─ Pagination.scss
+│  └─ types/
+│     └─ api.types.ts
+│
+├─ entities/
+│  └─ movie/
+│     ├─ model/
+│     │  └─ movie.types.ts
+│     └─ ui/
+│        └─ MovieCard/
+│           ├─ MovieCard.tsx
+│           └─ MovieCard.scss
+│
+├─ features/
+│  └─ moviesList/
+│     ├─ model/
+│     │  ├─ moviesSlice.ts
+│     │  └─ moviesSelectors.ts
+│     └─ ui/
+│        ├─ MoviesList.tsx
+│        └─ MoviesList.scss
+│
+├─ pages/
+│  └─ MoviesPage/
+│     ├─ MoviesPage.tsx
+│     └─ MoviesPage.scss
+│
+├─ App.tsx
+├─ main.tsx

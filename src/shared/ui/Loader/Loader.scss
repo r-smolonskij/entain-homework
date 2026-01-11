@@ -1,0 +1,44 @@
+@use "../../../app/styles/variables" as *;
+
+.loader {
+  --loader-size: 32px;
+  --loader-border: 3px;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  &--sm {
+    --loader-size: 20px;
+    --loader-border: 2px;
+  }
+
+  &--lg {
+    --loader-size: 48px;
+    --loader-border: 4px;
+  }
+
+  &__ring {
+    animation: loader-spin 0.9s linear infinite;
+    border: var(--loader-border) solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top-color: $color-ink;
+    height: var(--loader-size);
+    width: var(--loader-size);
+  }
+
+  &__label {
+    color: $color-ink;
+    font-size: $text-sm;
+    letter-spacing: 0.02em;
+  }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

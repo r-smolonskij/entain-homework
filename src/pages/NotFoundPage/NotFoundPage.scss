@@ -1,0 +1,13 @@
+@use "../../app/styles/variables" as *;
+
+.not-found {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $space-6;
+
+  @media (max-width: 600px) {
+    padding: $space-4;
+  }
+}

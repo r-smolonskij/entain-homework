@@ -1,0 +1,191 @@
+@use "../../../app/styles/variables" as *;
+
+.movie-details {
+  color: $color-text;
+  overflow-x: hidden;
+
+  &__hero {
+    background: $color-overlay center / cover no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+  }
+
+  &__hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(13, 37, 63, 0.92) 0%,
+      rgba(13, 37, 63, 0.65) 45%,
+      rgba(13, 37, 63, 0.9) 100%
+    );
+    inset: 0;
+    position: absolute;
+  }
+
+  &__back-button {
+    width: max-content;
+  }
+  &__hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: $max-content-width;
+    margin: auto;
+    padding: $space-4;
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+  }
+
+  &__layout {
+    display: grid;
+    gap: $space-6;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  &__poster {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+  }
+
+  &__poster img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  &__poster-fallback {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: $text-md;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(320px, 100vw);
+
+    img {
+      width: 80px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+  }
+
+  &__title {
+    font-size: $text-2xl;
+    margin: 0;
+  }
+
+  &__stats_container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    font-size: $text-md;
+    gap: $space-2;
+  }
+
+  &__stats_title {
+    font-size: $text-lg;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__stats-chip {
+    padding: $space-2 $space-3;
+    background-color: $color-ink;
+    font-size: $text-sm;
+    gap: $space-2;
+    border-radius: $radius-lg;
+  }
+
+  &__stats-chips-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+
+  &__gallery {
+    display: grid;
+    gap: $space-3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &__gallery-item {
+    cursor: pointer;
+  }
+
+  &__gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: $radius-md;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  @media (max-width: 760px) {
+    &__layout {
+      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__title {
+      font-size: $text-xl;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__hero-content {
+      padding: 0;
+    }
+    &__poster {
+      width: 100vw;
+      border-radius: 0;
+      border-bottom-left-radius: $radius-md;
+      border-bottom-right-radius: $radius-md;
+    }
+
+    &__back-button {
+      position: absolute;
+      top: $space-4;
+      left: $space-4;
+    }
+    &__content,
+    &__gallery {
+      padding: 0 $space-4;
+    }
+  }
+
+  @media (min-width: 900px) {
+    &__gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1200px) {
+    &__gallery {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

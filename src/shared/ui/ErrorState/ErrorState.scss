@@ -1,0 +1,49 @@
+@use "../../../app/styles/variables" as *;
+
+.error-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  justify-content: center;
+  max-width: 520px;
+  padding: $space-5;
+  text-align: center;
+
+  &__icon {
+    align-items: center;
+    background: rgba(211, 47, 47, 0.12);
+    border-radius: 50%;
+    color: $color-error;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: $text-xl;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+  }
+
+  &__title {
+    font-size: $text-2xl;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__message {
+    color: $color-ink;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    justify-content: center;
+  }
+}

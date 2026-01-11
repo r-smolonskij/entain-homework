@@ -1,0 +1,85 @@
+@use "../../../../app/styles/variables" as *;
+
+$movie-card-height: 400px;
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  background: $color-overlay;
+  border-radius: $radius-lg;
+  height: $movie-card-height;
+  color: $color-text;
+  cursor: pointer;
+  position: relative;
+  overflow-wrap: anywhere;
+  width: 100%;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.25);
+  }
+
+  &:hover &__content {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  &__image {
+    background: center / cover no-repeat;
+    border-radius: $radius-lg;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__image-fallback {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  &__content {
+    padding: 0 $space-4 $space-4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    border-radius: $radius-lg;
+    background-color: $color-overlay;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: $text-lg;
+    margin: $space-3 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__overview {
+    font-size: $text-sm;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

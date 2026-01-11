@@ -1,0 +1,36 @@
+import { Movie } from "../../../entities/movie/model/movie.types";
+
+export const moviesFixture: Movie[] = [
+  {
+    adult: false,
+    backdrop_path: null,
+    genre_ids: [],
+    id: 1,
+    original_language: "en",
+    original_title: "Test Movie 1",
+    overview: "Overview 1",
+    popularity: 0,
+    poster_path: null,
+    release_date: "2025-12-31",
+    title: "Test Movie 1",
+    video: false,
+    vote_average: 0,
+    vote_count: 0,
+  },
+  {
+    adult: false,
+    backdrop_path: null,
+    genre_ids: [],
+    id: 2,
+    original_language: "en",
+    original_title: "Test Movie 2",
+    overview: "Overview 2",
+    popularity: 0,
+    poster_path: null,
+    release_date: "2025-12-30",
+    title: "Test Movie 2",
+    video: false,
+    vote_average: 0,
+    vote_count: 0,
+  },
+];
